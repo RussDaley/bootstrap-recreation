@@ -19,13 +19,21 @@
 
 	<style type="text/css">
 		.custom-carousel {
-
+			position: relative;
+			overflow: hidden;
+			height: 400px;
+			width: 100%;
 		}
 		.custom-carousel-item {
+			position: relative;
 			display: none;
 		}
-		.custom-carousel-item.active {
+		.custom-carousel-item.next-item, .active {
+			position: absolute;
 			display: block;
+		}
+		.custom-carousel-item.next-item {
+            margin-left: 100%;
 		}
 	</style>
 </head>
@@ -33,33 +41,48 @@
 	<div class="container">
 		<div class="custom-carousel">
 			<div class="custom-carousel-item active">
-				<img class="d-block img-fluid" src="https://tedconfblog.files.wordpress.com/2014/07/newbeginning.jpg?w=900" alt="First slide">
+				<img src="https://tedconfblog.files.wordpress.com/2014/07/newbeginning.jpg?w=900" alt="First slide">
 			</div>
 			<div class="custom-carousel-item">
-				<img class="d-block img-fluid" src="http://ishlatgroup.com/library/img/0002.jpg" alt="Second slide">
+				<img src="http://ishlatgroup.com/library/img/0002.jpg" alt="Second slide">
 			</div>
 			<div class="custom-carousel-item">
-				<img class="d-block img-fluid" src="https://www.ethos3.com/wp-content/uploads/2016/09/e3_Blog_The-End_Draft1-1024x600.jpg" alt="Third slide">
+				<img src="https://www.ethos3.com/wp-content/uploads/2016/09/e3_Blog_The-End_Draft1-1024x600.jpg" alt="Third slide">
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
-		var childCount = $(".custom-carousel").children().length;
-		var itemCount = 1;
 
-		function changeSlide() {
-			itemCount++;
-			$('.custom-carousel div').hide();
-			$('.custom-carousel div:nth-child('+itemCount+')').show();
-			if (itemCount === childCount) {
-				itemCount = 0;
+		var childCount = $(".custom-carousel").children().length;
+		var nextItem = 1;
+		var speedTransition = 1000;
+		var speedSlideActive = 3000;
+		var actualSlideSpeed = speedTransition + speedSlideActive;
+
+		function moveLeft(transitionSpeed) {
+			nextItem++;
+
+			$('.custom-carousel div.active').animate({ marginLeft: '-100%' }, transitionSpeed, function() {
+				$('.custom-carousel div.active').css( "margin-left", "100%" );
+				$('.custom-carousel div.active').removeClass('active');
+			});
+
+			$('.custom-carousel div:nth-child('+nextItem+')').addClass("next-item");
+			$('.custom-carousel div.next-item').animate({ marginLeft: '0' }, transitionSpeed, function() {
+				$('.custom-carousel div.next-item').addClass('active');
+				$('.custom-carousel div.next-item').removeClass('next-item');
+			});
+
+			if (nextItem === childCount) {
+				nextItem = 0;
 			}
 		}
-		setInterval(changeSlide, 2000);
+		setInterval(function(){ moveLeft(speedTransition)}, actualSlideSpeed);
+
 	</script>
 
 	<!-- jQuery first, then Tether, then Bootstrap JS. -->
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
