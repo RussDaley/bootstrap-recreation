@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags for bootstrap -->
+	<meta charset="utf-8">
+		<!-- To ensure proper rendering and touch zooming for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Custom Carousel</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style type="text/css">
+		.custom-carousel {
+
+		}
+		.custom-carousel-item {
+			display: none;
+		}
+		.custom-carousel-item.active {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="custom-carousel">
+			<div class="custom-carousel-item active">
+				<img class="d-block img-fluid" src="https://tedconfblog.files.wordpress.com/2014/07/newbeginning.jpg?w=900" alt="First slide">
+			</div>
+			<div class="custom-carousel-item">
+				<img class="d-block img-fluid" src="http://ishlatgroup.com/library/img/0002.jpg" alt="Second slide">
+			</div>
+			<div class="custom-carousel-item">
+				<img class="d-block img-fluid" src="https://www.ethos3.com/wp-content/uploads/2016/09/e3_Blog_The-End_Draft1-1024x600.jpg" alt="Third slide">
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var childCount = $(".custom-carousel").children().length;
+		var itemCount = 1;
+
+		function changeSlide() {
+			itemCount++;
+			$('.custom-carousel div').hide();
+			$('.custom-carousel div:nth-child('+itemCount+')').show();
+			if (itemCount === childCount) {
+				itemCount = 0;
+			}
+		}
+		setInterval(changeSlide, 2000);
+	</script>
+
+	<!-- jQuery first, then Tether, then Bootstrap JS. -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+</html>
