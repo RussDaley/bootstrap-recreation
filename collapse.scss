@@ -38,15 +38,23 @@ $button_blue-hover: #014c8c;
 /*----------- Accordion -------  */
 .custom-accordion {
 	padding: 100px 0;
-	background-color: gray;
-	color: white;
 }
 
+$folder-border-radius: 5px;
 .folder {
 	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: $folder-border-radius;
+	&.active {
+		.folder-header {
+			border-radius: $folder-border-radius $folder-border-radius 0 0;
+		}
+		.folder-contents {
+			display: block;
+		}
+	}
 	.folder-header {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-		border-radius: 4px 4px 0 0;
+		border-radius: $folder-border-radius;
 		padding: 12px 20px;
 		background-color: #f7f7f9;
 		font-size: 20px;
@@ -60,13 +68,10 @@ $button_blue-hover: #014c8c;
 	}
 	.folder-contents {
 		display: none;
-		border-radius: 0 0 4px 4px;
+		border-radius: 0 0 $folder-border-radius $folder-border-radius;
 		padding: 20px;
 		background-color: white;
 		color: black;
 		font-size: 16px;
-		&.active {
-			display: block;
-		}
 	}
 }

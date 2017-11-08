@@ -53,35 +53,35 @@
 
 	<div class="custom-accordion">
 		<div class="rd-container">
-			<div class="folder">
+			<div id="folder1" class="folder active">
 				<div class="folder-header">
 					<a href="#folder1">Collapsible Group Item #1</a>
 				</div>
-				<div id="folder1" class="folder-contents active">
+				<div class="folder-contents">
 					<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
 				</div>
 			</div>
-			<div class="folder">
+			<div id="folder2" class="folder">
 				<div class="folder-header">
 					<a href="#folder2">Collapsible Group Item #2</a>
 				</div>
-				<div id="folder2" class="folder-contents">
+				<div class="folder-contents">
 					<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
 				</div>
 			</div>
-			<div class="folder">
+			<div id="folder3" class="folder">
 				<div class="folder-header">
 					<a href="#folder3">Collapsible Group Item #3</a>
 				</div>
-				<div id="folder3" class="folder-contents">
+				<div class="folder-contents">
 					<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
 				</div>
 			</div>
-			<div class="folder">
+			<div id="folder4" class="folder">
 				<div class="folder-header">
 					<a href="#folder4">Collapsible Group Item #4</a>
 				</div>
-				<div id="folder4" class="folder-contents">
+				<div class="folder-contents">
 					<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
 				</div>
 			</div>
@@ -90,8 +90,8 @@
 	<script type="text/javascript">
 		$('.custom-accordion .folder-header a').click(function(e) {
 			e.preventDefault();
-			$('.custom-accordion .folder .folder-contents').removeClass('active');
-
+			$('.custom-accordion .folder').removeClass('active');  // choose to put the active class on the folder so that the border radius look better(look at the folder class in the css)
+			
 			var folderTarget = this.getAttribute('href');
 			$(folderTarget).addClass('active');
 		});

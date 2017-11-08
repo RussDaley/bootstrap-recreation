@@ -27,15 +27,18 @@
 
 /*----------- Accordion -------  */
 .custom-accordion {
-  padding: 100px 0;
-  background-color: gray;
-  color: white; }
+  padding: 100px 0; }
 
 .folder {
-  border: 1px solid rgba(0, 0, 0, 0.125); }
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px; }
+  .folder.active .folder-header {
+    border-radius: 5px 5px 0 0; }
+  .folder.active .folder-contents {
+    display: block; }
   .folder .folder-header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 4px 4px 0 0;
+    border-radius: 5px;
     padding: 12px 20px;
     background-color: #f7f7f9;
     font-size: 20px; }
@@ -46,13 +49,11 @@
         color: #014c8c; }
   .folder .folder-contents {
     display: none;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 5px 5px;
     padding: 20px;
     background-color: white;
     color: black;
     font-size: 16px; }
-    .folder .folder-contents.active {
-      display: block; }
 
 body {
   font-family: sans-serif; }
