@@ -1,0 +1,72 @@
+$button_blue: #0275d8;
+$button_blue-hover: #014c8c;
+
+.custom-collapse {
+	margin-top: 30px;
+	.rd-button {
+		display: inline-block;
+		background-color: $button_blue;
+		padding: 8px 16px;
+		border-radius: 5px;
+		color: white;
+		margin-right: 10px;
+		border: 1px solid $button_blue;   /* added a border so that buttons don't have a default border */
+		text-decoration: none;
+		&:hover {
+			background-color: $button_blue-hover;
+			border-color: $button_blue-hover;
+		}
+	}
+}
+
+.toggle-container {
+	display: none;
+	padding: 20px;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.13);
+	&.active {
+		display: block;
+	}
+}
+
+.filling-Content {
+	margin-top: 30px;
+}
+
+
+
+/*----------- Accordion -------  */
+.custom-accordion {
+	padding: 100px 0;
+	background-color: gray;
+	color: white;
+}
+
+.folder {
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	.folder-header {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+		border-radius: 4px 4px 0 0;
+		padding: 12px 20px;
+		background-color: #f7f7f9;
+		font-size: 20px;
+		a {
+			color: $button_blue;
+			font-weight: bold;
+			&:hover {
+				color: $button_blue-hover;
+			}
+		}
+	}
+	.folder-contents {
+		display: none;
+		border-radius: 0 0 4px 4px;
+		padding: 20px;
+		background-color: white;
+		color: black;
+		font-size: 16px;
+		&.active {
+			display: block;
+		}
+	}
+}
